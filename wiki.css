@@ -1,0 +1,15 @@
+a {
+    <!-- dark goldenrod -->
+    color: #B8860B;
+}
+main {
+    border: 2px solid;
+    border-color: #FFEBCD;
+    border-radius: 3px;
+    width: 600px;
+    padding: 10px;
+    margin: 20px;
+    <!-- linen -->
+    background-color: #faf0e6;
+}
+
