@@ -2,9 +2,9 @@
   "Categories": [
     {
       "name": "Common Lisp, *Lisp",
-      "keywords": ["CL", "Common Lisp", "CLHS", "Lisp", "lisp", "Racket", "Chez"],
+      "keywords": ["Common Lisp", "CLHS", "Lisp", "lisp", "Racket", "Chez"],
       "domains": ["clhs.lisp.se", "gigamonkeys.com", "common-lisp.net"],
-      "urlpatterns": ["comp\.lang\.lisp"]
+      "urlpatterns": ["comp.lang.lisp"]
     },
     {
       "name": "Python",

@@ -6,9 +6,9 @@ main {
     border: 2px solid;
     border-color: #FFEBCD;
     border-radius: 3px;
-    width: 600px;
-    padding: 10px;
-    margin: 20px;
+    width: calc(100% - 40px);
+    padding: 20px;
+    margin: 40px;
     <!-- linen -->
     background-color: #faf0e6;
 }
