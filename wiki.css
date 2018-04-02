@@ -1,15 +1,25 @@
 a {
-    <!-- dark goldenrod -->
+    /* dark goldenrod */
     color: #B8860B;
 }
+
+div.category-title {
+    color: #0047AB;
+}
+
 main {
     border: 2px solid;
     border-color: #FFEBCD;
     border-radius: 3px;
-    width: calc(100% - 40px);
+    max-width: 100%;
     padding: 20px;
     margin: 40px;
-    <!-- linen -->
+    /* linen */
     background-color: #faf0e6;
 }
 
+.favicon {
+    display: inline;
+    width: 16px;
+    height: 16px;
+}

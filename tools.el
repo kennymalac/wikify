@@ -51,13 +51,13 @@
 (defun html-block-from-category (category)
   (let ((name (gethash "name" category)))
     ;; #+ATTR_HTML: :title %s\n
-    (insert (format "%s\n%s\n"
+    (insert (format "@@html:<div class=\"category-title\">@@%s\n%s@@html:</div>@@\n"
                     name (gethash "keywords" category)))))
 
 (defun html-block-from-tab (tab)
   (let ((title (gethash "title" tab "")))
-    (insert (format "[[file:%s]]\n#+ATTR_HTML: :title %s\n[[%s][%s]]\n"
-                    (gethash "favIconUrl" tab "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGS6r69tiH8bFQLHVOlhXcmCvIkcbCIYmZEiZRY8a7ws5jKZbXqw") title (gethash "url" tab "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGS6r69tiH8bFQLHVOlhXcmCvIkcbCIYmZEiZRY8a7ws5jKZbXqw") title))))
+    (insert (format "#+ATTR_HTML: :title %s\n@@html:<img class=\"favicon\" src=\"%s\" />@@ [[%s][%s]]\n"
+                    title (gethash "favIconUrl" tab "") (gethash "url" tab "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGS6r69tiH8bFQLHVOlhXcmCvIkcbCIYmZEiZRY8a7ws5jKZbXqw") title))))
 
 
 
