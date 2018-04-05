@@ -4,7 +4,7 @@
       "name": "Common Lisp, *Lisp",
       "keywords": ["Common Lisp", "CLHS", "Lisp", "lisp", "Racket", "Chez"],
       "domains": ["clhs.lisp.se", "gigamonkeys.com", "common-lisp.net"],
-      "urlpatterns": ["comp.lang.lisp"]
+      "urlpatterns": ["comp\.lang\.lisp"]
     },
     {
       "name": "Python",
@@ -38,6 +38,10 @@
       "name": "Graphics",
       "keywords": ["Shader", "OpenGL", "Vulkan", "WebGL"],
       "domains": ["khronos.org", "webglfundamentals.org", "learnopengl.com", "webglinsights.com"]
+    },
+    {
+      "name": "Uncategorized",
+      "urlpatterns": [".*"]
     }
   ],
   "Windows": {

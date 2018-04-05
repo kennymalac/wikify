@@ -3,6 +3,7 @@
 (require 'cl-lib)
 (require 'generator)
 
+(defvar blacklist-patterns '("chrome\:\/\/.*" "about\:\\(?:config\\|newtab\\|\\addons\\|preferences\\|debugging\\)"))
 
 (defun tab-has-keywords-p (keywords tab)
   (let ((ks (mapcar 'downcase keywords)) (tab-title (gethash "title" tab)))
@@ -10,37 +11,33 @@
                 (cl-search keyword tab-title))
               ks)))
 
+(defun matches-urlpattern-p (tab-url urlpattern)
+  (string-match-p urlpattern tab-url))
+
+(defun tab-in-urlpatterns-p (urlpatterns tab)
+  (seq-some (apply-partially 'matches-urlpattern-p (gethash "url" tab "")) urlpatterns))
 
 (defun tab-has-domains-p (domains tab)
   (let ((tab-url (gethash "url" tab)))
     (seq-find (lambda (domain)
-                (string-match-p (regexp-quote (format "http|https\:\/\/(?:www)?%s(?:\/?.*)?" domain)) tab-url))
+                (string-match-p (format "\\(\\?\\:http\\|https\\)\\:\\/\\/\\(\\?\\:www\\)?%s.*?" domain) tab-url))
               domains)))
 
-(defun tab-has-urlpattern-p (urlpatterns tab)
-  ;; TODO
-  nil)
-
-
 (iter-defun categorize-from-tabs (categories tabs)
-                                        ;(setq reduced copy-hash-table categories)
-  (message "%s" categories)
   (let ((uncategorized-tabs (copy-sequence tabs)))
     (cl-labels ((filter-tabs (category)
-                             ;;(message "%s" category)
                              (seq-filter
                               (lambda (tab)
-                                (or (tab-has-keywords-p (gethash "keywords" category) tab)
-                                    (tab-has-domains-p (gethash "domains" category) tab)
-                                    (tab-has-urlpattern-p (gethash "urlpatterns" category) tab)))
+                                ;; Cannot be in blacklisted URLs, and should fit in at least 1 category specification
+                                (and (not (tab-in-urlpatterns-p blacklist-patterns tab))
+                                     (or (tab-has-keywords-p (gethash "keywords" category '()) tab)
+                                         (tab-has-domains-p (gethash "domains" category '()) tab)
+                                         (tab-in-urlpatterns-p (gethash "urlpatterns" category '()) tab))))
                               uncategorized-tabs)))
-      ;;(puthash category-tabs-stack)
 
       ;; Take each category, yield its tabs
-       (dolist (category categories)
-         (iter-yield (cons category (filter-tabs category)))
-
-           ))))
+      (dolist (category categories)
+        (iter-yield (cons category (filter-tabs category)))))))
 
 ;; (defun define-tag)
 
