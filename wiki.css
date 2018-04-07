@@ -3,8 +3,9 @@ a {
     color: #B8860B;
 }
 
-div.category-title {
+.category-title {
     color: #0047AB;
+    display: block;
 }
 
 main {

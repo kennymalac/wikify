@@ -1,7 +1,7 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="wiki.css" />
 #+HTML: <main>
 
-(org-wiki-generate "../../../org/tabs.json" "categories_example.json")
+(org-wiki-generate "categories_example.json" "../../../org/tabs.json" "../../../org/tabs2.json")
 
 
 #+HTML: </main>

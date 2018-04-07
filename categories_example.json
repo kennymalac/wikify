@@ -2,45 +2,54 @@
   "Categories": [
     {
       "name": "Common Lisp, *Lisp",
+      "href": "lisp",
       "keywords": ["Common Lisp", "CLHS", "Lisp", "lisp", "Racket", "Chez"],
       "domains": ["clhs.lisp.se", "gigamonkeys.com", "common-lisp.net"],
       "urlpatterns": ["comp\.lang\.lisp"]
     },
     {
       "name": "Python",
+      "href": "python",
       "keywords": ["python", "django"],
       "domains": ["python.org"]
     },
     {
       "name": "JavaScript",
+      "href": "javascript",
       "keywords": ["js", "JavaScript", "ES6", "es2015", ".js", "webrtc", "jQuery", "vue.js", "Vue", "react", "flux", "redux"],
       "domains": ["developer.mozilla.org"]
     },
     {
       "name": "C++",
+      "href": "cpp",
       "keywords": ["C++", "c++", "cpp"],
       "domains": ["cppreference.com"]
     },
     {
       "name": "Qt & QML",
+      "href": "qt-qml",
       "keywords": ["Qt", "QML", "qmake", "qt5"],
       "domains": ["doc.qt.io"]
     },
     {
       "name": "Algorithms and Data Structures",
+      "href": "algorithms-data-structures",
       "keywords": ["algorithm", "data structure"]
     },
     {
       "name": "Mathematics",
+      "href": "math",
       "keywords": ["math", "algebra", "physics"]
     },
     {
       "name": "Graphics",
+      "href": "graphics",
       "keywords": ["Shader", "OpenGL", "Vulkan", "WebGL"],
       "domains": ["khronos.org", "webglfundamentals.org", "learnopengl.com", "webglinsights.com"]
     },
     {
       "name": "Uncategorized",
+      "href": "uncategorized",
       "urlpatterns": [".*"]
     }
   ],
